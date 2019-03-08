@@ -36,6 +36,7 @@ class snore_data_extractor:
             self.labels_amplify = {}
 
         # load labels from docs
+        # self.dict_labels是一个表，表中为train或者devel或者test的数据的类型(V\E\O\T)
         with open(file_path+"snore_map.txt", "r+") as doc:
             for _,l in enumerate(doc):
                 line = l.split("\t")
@@ -51,7 +52,9 @@ class snore_data_extractor:
                 elif data_mode == "test":
                     if title == "test":
                         self.dict_labels[number] = self.dict_label_2_code[label]
-
+                        
+        # https://docs.python.org/2/library/collections.html
+        # https://www.programiz.com/python-programming/methods/dictionary/values
         if duplicate == True:
             cnt = Counter()
             for labels in list(self.dict_labels.values()):
