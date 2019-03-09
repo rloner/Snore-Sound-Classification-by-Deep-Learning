@@ -94,6 +94,7 @@ class snore_data_extractor:
                 figure = misc.imread(file_path+self.data_mode+"/"+fig, mode=colour_mode)
                 if duplicate == True:
                     for _ in range(self.labels_amplify[self.dict_labels[number]]):
+                    # 进行论文中的3.2.Reproducing Data步骤，self.features为reproducing之后的全体图像，self.labels为reproducing之后的全体label
                         if ifResize == True:
                             self.features.append(misc.imresize(figure, resize).tolist())
                         else:
@@ -109,6 +110,7 @@ class snore_data_extractor:
             print (self.data_mode+" finish loading "+fig)
 
         # process labels, if one-hot is needed, then transform labels to it
+        # len(self.labels)为复制后的全体图像的数目。
         if self.one_hot == False:
             self.labels = np.array(self.labels)
         else:
