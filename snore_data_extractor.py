@@ -53,8 +53,11 @@ class snore_data_extractor:
                     if title == "test":
                         self.dict_labels[number] = self.dict_label_2_code[label]
                         
-        # https://docs.python.org/2/library/collections.html
-        # https://www.programiz.com/python-programming/methods/dictionary/values
+        '''https://docs.python.org/2/library/collections.html
+        duplicate==True时,即进行论文中的3.2. Reproducing Data步骤，cnt对应data中每个label对应的数字(0/1/2/3)出现了多少次，
+        即cnt=counter({1:多少次，2：多少次，3：多少次，4：多少次}),0对应V，...,3对应T.
+        max_value即其中出现过的最大次数,
+        self.labels_amplify即为需要乘以的倍数，self.labels_amplify={0:max_value/cnt[0],...,3:max_value/cnt[3])'''
         if duplicate == True:
             cnt = Counter()
             for labels in list(self.dict_labels.values()):
