@@ -36,7 +36,8 @@ class snore_data_extractor:
             self.labels_amplify = {}
 
         # load labels from docs
-        # self.dict_labels是一个表，表中为train或者devel或者test的数据的类型(V\E\O\T)
+        '''self.dict_labels是一个表，表中value为train或者devel或者test的data类型(V\E\O\T)对应的数字，
+        例如self.dict_labels={1:0,2:0,3:1,4:0,...,282:0}.(以snore_spectrogram_5/snore_map.txt为例)'''
         with open(file_path+"snore_map.txt", "r+") as doc:
             for _,l in enumerate(doc):
                 line = l.split("\t")
@@ -55,7 +56,7 @@ class snore_data_extractor:
                         
         '''https://docs.python.org/2/library/collections.html
         duplicate==True时,即进行论文中的3.2. Reproducing Data步骤，cnt对应data中每个label对应的数字(0/1/2/3)出现了多少次，
-        即cnt=counter({1:多少次，2：多少次，3：多少次，4：多少次}),0对应V，...,3对应T.
+        即cnt=counter({0：多少次，1:多少次，2：多少次，3：多少次}),0对应V，...,3对应T.
         max_value即其中出现过的最大次数,
         self.labels_amplify即为需要乘以的倍数，self.labels_amplify={0:max_value/cnt[0],...,3:max_value/cnt[3])'''
         if duplicate == True:
