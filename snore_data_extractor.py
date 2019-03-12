@@ -13,10 +13,10 @@ class snore_data_extractor:
         self.dict_label_2_code = {}
         self.dict_code_2_label = {}
         self.dict_labels = {}
-        self.pointer = 0
+        self.pointer = 0                                #???
         self.one_hot = one_hot
         self.data_mode = data_mode
-        if timechain == True:
+        if timechain == True:                           #???
             self.dict_subpart_2_timechain = {}
             self.dict_subpart_2_fullpart = {}
 
@@ -36,8 +36,8 @@ class snore_data_extractor:
             self.labels_amplify = {}
 
         # load labels from docs
-        '''self.dict_labels是一个表，表中value为train或者devel或者test的data类型(V\E\O\T)对应的数字，
-        例如self.dict_labels={1:0,2:0,3:1,4:0,...,282:0}.(以snore_spectrogram_5/snore_map.txt为例)'''
+        '''self.dict_labels是一个字典，字典中value为train或者devel或者test的data类型(V\E\O\T)对应的数字，
+        例如self.dict_labels={1:0,2:0,3:1,4:0,...,282:0}.(以snore_spectrogram_5/snore_map.txt,data_mode=="train"为例)'''
         with open(file_path+"snore_map.txt", "r+") as doc:
             for _,l in enumerate(doc):
                 line = l.split("\t")
