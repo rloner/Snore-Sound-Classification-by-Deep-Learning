@@ -631,7 +631,7 @@ if __name__ == "__main__":
     slicer_3D_0 = Slice(dim=3)
     slicer_3D_1 = Slice(dim=3)
 
-    load_folder_path = "/data/jw11815/snore_spectrogram_5/"
+    load_folder_path = "snore_spectrogram_5/"
     log_path = "./spectro_5_46_log_dev"
     model_save_path = "./weights_spectro_5_46_dev.h5"
     ifRegularizer = True
