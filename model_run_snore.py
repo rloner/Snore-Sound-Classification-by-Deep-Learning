@@ -643,10 +643,10 @@ if __name__ == "__main__":
     train_features, train_labels = train.full_data()
 
     train_features = np.array(train_features).astype("float32")
-    # train_features.shape==(n,252,176,3)
+    # train_features.shape==(n,176,252,3)
     train_features /= 255
     x_train = np.rollaxis(train_features, 2, 1)
-    # x_train.shape=(n,176,252,3)
+    # x_train.shape=(n,252,176,3)
     y_train = np.array(train_labels)
 
 
